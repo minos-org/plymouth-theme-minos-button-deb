@@ -1,0 +1,18 @@
+Source: plymouth-theme-minos-button
+Section: x11
+Priority: optional
+Maintainer: Javier P.L. <chilicuil@ubuntu.com>
+Build-Depends: debhelper (>= 7), intltool
+Standards-Version: 3.8.4
+Homepage: http://javier.io/minos
+Vcs-Git: git://github.com/minos-org/plymouth-theme-minos-button-deb
+Vcs-Browser: https://github.com/minos-org/plymouth-theme-minos-button-deb
+
+Package: plymouth-theme-minos-button
+Architecture: all
+Depends: plymouth (>= 0.8.1-1), plymouth-label, ${misc:Depends}
+Provides: plymouth-theme
+Description: plymouth theme button for Minos
+ Minos is a minimalist, fast, yet easy to use Linux based operating system.
+ .
+ This package contains a specific Minos theme for plymouth.

@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Minos
+Description=Minos button plymouth theme
+ModuleName=script
+
+[script]
+ImageDir=/lib/plymouth/themes/minos-button
+ScriptFile=/lib/plymouth/themes/minos-button/minos-button.script
