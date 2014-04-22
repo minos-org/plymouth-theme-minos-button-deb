@@ -19,8 +19,8 @@ Window.GetMaxHeight = fun (){
 };
 
 anim.imagecount = 32;
-anim.target_width =  0.1* 0.46 * Window.GetWidth();
-anim.target_height =  0.1* 0.46 * Window.GetWidth();
+anim.target_width =  0.06* 0.46 * Window.GetWidth();
+anim.target_height =  0.06* 0.46 * Window.GetWidth();
 
 fun RotatedImage (index){
 	index = Math.Int(index);
@@ -41,7 +41,7 @@ anim.original_image= anim.image.Scale(anim.target_width, anim.target_width);
 anim.sprite = SpriteNew();
 anim.sprite.SetImage(RotatedImage (0));
 anim.sprite.SetX((Window.GetX() + Window.GetWidth() - RotatedImage(0).GetWidth()) / 2);
-anim.sprite.SetY(Window.GetY() + Window.GetHeight() * 0.37);
+anim.sprite.SetY(Window.GetY() + Window.GetHeight() * 0.47);
 anim.angle = 0;
 anim.index = 0;
 
@@ -52,7 +52,7 @@ logo.sprite = SpriteNew();
 logo.sprite.SetImage(logo.image);
 logo.opacity_angle = 0;
 logo.sprite.SetX((Window.GetX() + Window.GetMaxWidth()  - logo.image.GetWidth())  / 2);
-logo.sprite.SetY(Window.GetY() + Window.GetHeight() * 0.37);
+logo.sprite.SetY(Window.GetY() + Window.GetHeight() * 0.47);
 
 background.image = background.original_image.Scale(Window.GetMaxWidth() , Window.GetMaxHeight());
 background.sprite = SpriteNew();
