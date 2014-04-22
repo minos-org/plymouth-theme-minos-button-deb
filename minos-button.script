@@ -32,8 +32,8 @@ fun RotatedImage (index){
 
 logo.original_image = ImageNew("logo.png");
 background.original_image = ImageNew("background.png");
-Window.SetBackgroundTopColor(0.234, 0.43, 0.705);
-Window.SetBackgroundBottomColor(0.16, 0.25, 0.44);
+Window.SetBackgroundTopColor(0, 0, 0);
+Window.SetBackgroundBottomColor(0, 0, 0);
 
 anim.image= ImageNew("animation.png");
 anim.original_image= anim.image.Scale(anim.target_width, anim.target_width);
