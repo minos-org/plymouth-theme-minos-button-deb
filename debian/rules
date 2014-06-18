@@ -1,4 +1,27 @@
 #!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+
+DEB_VERSION:=$(shell dpkg-parsechangelog -n1 | sed -n '/^Version: /s///p')
+DEB_UPSTREAM_VERSION:=$(shell DEB_VERSION=${DEB_VERSION}; echo $${DEB_VERSION%-*})
+DEB_MASTER_VERSION:=$(shell DEB_UPSTREAM_VERSION=${DEB_UPSTREAM_VERSION}; echo $${DEB_UPSTREAM_VERSION\#*+git})
+
+# Uncomment this to turn on verbose mode.
+export DH_VERBOSE=1
 
 %:
 	dh $@
+
+get-orig-source:
+	rm -rf debian/tmp; mkdir debian/tmp
+	cd debian/tmp; wget https://github.com/minos-org/plymouth-theme-minos-button/archive/${DEB_MASTER_VERSION}.tar.gz
+	cd debian/tmp; tar xvzf ${DEB_MASTER_VERSION}.tar.gz
+	cd debian/tmp; mv plymouth-theme-minos-button-* plymouth-theme-minos-button-${DEB_UPSTREAM_VERSION}
+	cd debian/tmp; tar cvJf plymouth-theme-minos-button_${DEB_UPSTREAM_VERSION}.orig.tar.xz plymouth-theme-minos-button-${DEB_UPSTREAM_VERSION}
+	mv debian/tmp/plymouth-theme-minos-button_${DEB_UPSTREAM_VERSION}.orig.tar.xz .
+	mv debian/tmp/plymouth-theme-minos-button-${DEB_UPSTREAM_VERSION} .
+	rm -rf debian/tmp
