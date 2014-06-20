@@ -1,15 +1,20 @@
 Debian packaging for plymouth-theme-minos-button
 ----------------------------------------------------
 
-Steps to update this package:
+Steps to build this package:
 
-    git clone --dept=1 https://github.com/minos-org/plymouth-theme-minos-button-deb
-    cd plymouth-theme-minos-button-deb
-    dch -i #insert proper new upstream version (git revision between +/-)
-    debian/rules get-orig-source
-    mv debian plymouth-theme-minos-button-*
-    cd plymouth-theme-minos-button-*
-    [ Make here some adaptations, like updating debian/patches, if needed ]
-    [ add more details if required, $EDITOR debian/changelog ]
-    debuild -S
-    upload .dsc | .changes files
+```
+$ git clone --dept=1 https://github.com/minos-org/plymouth-theme-minos-button-deb
+$ cd plymouth-theme-minos-button-deb
+$ dch -i #insert proper upstream version (1:$(date +%Y%m%d%H%M)+git7digitsHash-minos)
+$ debian/rules get-orig-source
+$ mv debian plymouth-theme-minos-button-*
+$ cd plymouth-theme-minos-button-*
+
+[ Optional, make some adaptations, like updating debian/patches, if needed ]
+[ document additional changes if required, $EDITOR debian/changelog ]
+
+$ debuild -S
+
+[ Build .dsc (pbuilder) || Upload .changes file (dput) ]
+```

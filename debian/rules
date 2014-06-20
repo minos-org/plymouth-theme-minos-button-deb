@@ -8,6 +8,7 @@
 
 DEB_VERSION:=$(shell dpkg-parsechangelog -n1 | sed -n '/^Version: /s///p')
 DEB_UPSTREAM_VERSION:=$(shell DEB_VERSION=${DEB_VERSION}; echo $${DEB_VERSION%-*})
+DEB_UPSTREAM_VERSION:=$(shell DEB_UPSTREAM_VERSION=${DEB_UPSTREAM_VERSION}; echo $${DEB_UPSTREAM_VERSION\#*:})
 DEB_MASTER_VERSION:=$(shell DEB_UPSTREAM_VERSION=${DEB_UPSTREAM_VERSION}; echo $${DEB_UPSTREAM_VERSION\#*+git})
 
 # Uncomment this to turn on verbose mode.
