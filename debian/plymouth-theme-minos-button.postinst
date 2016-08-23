@@ -1,14 +1,23 @@
 #!/bin/sh
 set -e
 
+plymouth_theme="minos-button"
+
 case "${1}" in
-    configure)
-        update-alternatives \
-            --install /lib/plymouth/themes/default.plymouth default.plymouth \
-	    /lib/plymouth/themes/minos-button/minos-button.plymouth 100
+    configure) plymouth_themes_dirname="/lib/plymouth/themes/"
+        #Ubuntu 16.04 or above?
+        if [ -d /usr/share/plymouth/themes/ ] && \
+            dpkg --compare-versions 0.9.2-3ubuntu13 le "$(dpkg-query --showformat='${Version}' --show plymouth)"; then
+            plymouth_themes_dirname="/usr/share/plymouth/themes/"
+            sudo ln -s /lib/plymouth/themes/"${plymouth_theme}"/ "${plymouth_themes_dirname}"/"${plymouth_theme}"
+        fi
 
         update-alternatives \
-            --set default.plymouth /lib/plymouth/themes/minos-button/minos-button.plymouth
+            --install "${plymouth_themes_dirname}"/default.plymouth default.plymouth \
+            "${plymouth_themes_dirname}"/"${plymouth_theme}"/"${plymouth_theme}".plymouth 100
+
+        update-alternatives \
+            --set default.plymouth "${plymouth_themes_dirname}"/"${plymouth_theme}"/"${plymouth_theme}".plymouth
 
         mkdir -p /etc/initramfs-tools/conf.d/
         if [ -f /etc/initramfs-tools/conf.d/splash ]; then
@@ -20,15 +29,15 @@ case "${1}" in
         fi
 
         update-initramfs -u
-	;;
+        ;;
 
     abort-upgrade|abort-deconfigure|abort-remove)
-	;;
+        ;;
 
     *)
-	printf "%s\\n" "${0} called with unknown argument \`${1}'" 1>&2
-	exit 1
-	;;
+        printf "%s\\n" "${0} called with unknown argument \`${1}'" 1>&2
+        exit 1
+        ;;
 esac
 
 #DEBHELPER#
