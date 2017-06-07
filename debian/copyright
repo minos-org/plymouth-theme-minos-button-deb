@@ -1,6 +1,6 @@
 Format-Specification: http://dep.debian.net/deps/dep5/
 Name: Minos Plymouth Artwork
-Maintainer: Javier P.L. <chilicuil@ubuntu.com>
+Maintainer: Javier López <m@javier.io>
 Source: https://github.com/minos-org/plymouth-theme-minos-button-deb
 
 Files: *
@@ -9,11 +9,11 @@ License: GPL-2+
 
 Files: minos.script
 Copyright: 2009, Canonical Ltd.
-           2014, Javier P.L. <chilicuil@ubuntu.com>
+           2014, Javier López <m@javier.io>
 License: GPL-2+
 
 Files: debian/*
-Copyright: 2014, Javier P.L. <chilicuil@ubuntu.com>
+Copyright: 2014, Javier López <m@javier.io>
 License: GPL-2+
 
 License: GPL-2+

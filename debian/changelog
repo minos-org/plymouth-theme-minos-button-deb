@@ -3,10 +3,10 @@ plymouth-theme-minos-button (1:201608161105+git1516f72-minos) precise; urgency=l
   * add trusty/xenial packages into lp recipe:
     https://code.launchpad.net/~minos-archive/+recipe/plymouth-theme-minos-button
 
- -- Javier P.L. <chilicuil@ubuntu.com>  Tue, 16 Aug 2016 11:05:23 -0500
+ -- Javier López <m@javier.io>  Tue, 16 Aug 2016 11:05:23 -0500
 
 plymouth-theme-minos-button (1:201406192106+git1516f72-minos) precise; urgency=low
 
   * Initial release
 
- -- Javier P.L. <chilicuil@ubuntu.com>  Sun, 20 Apr 2014 21:48:29 -0500
+ -- Javier López <m@javier.io>  Sun, 20 Apr 2014 21:48:29 -0500

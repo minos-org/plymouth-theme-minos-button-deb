@@ -1,7 +1,7 @@
 Source: plymouth-theme-minos-button
 Section: x11
 Priority: optional
-Maintainer: Javier P.L. <chilicuil@ubuntu.com>
+Maintainer: Javier López <m@javier.io>
 Build-Depends: debhelper (>= 7), intltool
 Standards-Version: 3.8.4
 Homepage: http://minos.io
