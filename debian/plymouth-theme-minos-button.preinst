@@ -1,0 +1,23 @@
+#!/bin/sh
+set -e
+
+plymouth_theme="minos-button"
+
+case "${1}" in
+    install|upgrade)
+        #older versions installed the theme in /lib/plymouth/themes/ and linked it here; with the link in
+        #place dpkg would unpack the new files through it and then remove them as the old ones
+        [ -L /usr/share/plymouth/themes/"${plymouth_theme}" ] && rm -f /usr/share/plymouth/themes/"${plymouth_theme}"
+        ;;
+
+    abort-upgrade)
+        ;;
+
+    *)
+        printf "%s\\n" "${0} called with unknown argument \`${1}'" 1>&2
+        exit 1
+        ;;
+esac
+
+#DEBHELPER#
+exit 0

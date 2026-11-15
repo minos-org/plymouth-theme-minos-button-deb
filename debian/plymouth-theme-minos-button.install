@@ -1,3 +1,3 @@
-*.png lib/plymouth/themes/minos-button/
-*.plymouth lib/plymouth/themes/minos-button/
-*.script lib/plymouth/themes/minos-button/
+*.png usr/share/plymouth/themes/minos-button/
+*.plymouth usr/share/plymouth/themes/minos-button/
+*.script usr/share/plymouth/themes/minos-button/
